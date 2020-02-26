@@ -4,8 +4,17 @@
     "name": "Aidan Saxon",
     "destination": "Bristol",
     "timestamp": 1234455541,
-    "rating": 5,
+    "rating": 5.0,
     "passengers": 2,
+    "luggage": 1
+  },
+  {
+    "id": 2,
+    "name": "Kate Mainwaring",
+    "destination": "Cardiff",
+    "timestamp": 2345676543234,
+    "rating": 4.5,
+    "passengers": 1,
     "luggage": 1
   }
 ]

@@ -9,8 +9,8 @@ class Trip {
   String name;
   String destination;
   int timestamp;
-  int rating;
-  int passenger;
+  double rating;
+  int passengers;
   int luggage;
 
   Trip(
@@ -19,7 +19,7 @@ class Trip {
       this.destination,
       this.timestamp,
       this.rating,
-      this.passenger,
+      this.passengers,
       this.luggage});
 
   factory Trip.fromJson(Map<String, dynamic> parsedJson) {
@@ -29,7 +29,7 @@ class Trip {
         destination: parsedJson['destination'],
         timestamp: parsedJson['timestamp'],
         rating: parsedJson['rating'],
-        passenger: parsedJson['passenger'],
+        passengers: parsedJson['passengers'],
         luggage: parsedJson['luggage']);
   }
 }
@@ -70,21 +70,95 @@ class MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     print(widget.trips);
 
+    List<TripWidget> tripWidgets = buildTripContainers(widget.trips);
 
+//    return new MaterialApp(
+//      home: new Scaffold(
+//          appBar: new AppBar(
+//            title: new Text('Load Json'),
+//          ),
+//          body: new Container(padding: new EdgeInsets.all(20.0), child: trips)),
+//    );
 
     return new MaterialApp(
-      home: new Scaffold(
-          appBar: new AppBar(
-            title: new Text('Load Json'),
-          ),
-          body: new Container(
-              padding: new EdgeInsets.all(20.0),
-              child: new Row(
-                children: <Widget>[
-                  Text(
-                      "${widget.trips.map((el) => "id ${el.id} name ${el.name}")}")  // make this show the whole record and then load for multiple
-                ],
-              ))),
-    );
+        home: new Scaffold(
+      appBar: AppBar(
+        title: Text("TripListView"),
+      ),
+      body: Container(
+        child: CustomScrollView(
+          slivers: <Widget>[
+            SliverList(
+              delegate: SliverChildListDelegate(
+                  tripWidgets
+                  //TripWidget(widget.trips[0]),
+                  //TripWidget(widget.trips[1]),
+                ,
+              ),
+            ),
+          ],
+        ),
+      ),
+    ));
+  }
+
+  List<TripWidget> buildTripContainers(List<Trip> trips) {
+    List<TripWidget> tripWidgets = [];
+    trips.forEach((trip) => tripWidgets.add(TripWidget(trip)));
+    return tripWidgets;
+  }
+}
+
+class TripWidget extends StatelessWidget {
+  final Trip trip;
+
+  TripWidget(this.trip);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+        onTap: () {
+          print("Clicked the widget with id ${this.trip.id}"); // use this to go to the next screen with param trip
+        },
+        child: Container(
+            height: 100.0,
+            decoration: BoxDecoration(
+              color: const Color(0xff7c94b6),
+              border: Border.all(
+                color: Colors.black,
+                width: 4,
+              ),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            alignment: Alignment.center,
+            // Add components for the widget
+
+            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <
+                Widget>[
+              Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[Text("Driver Name: ${trip.name}")]),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Text("Destination: ${trip.destination}")
+                    ]),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[Text("Timestamp: ${trip.timestamp}")])
+              ]),
+              Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[Text("Rating: ${trip.rating}")]),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[Text("Passengers: ${trip.passengers}")]),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[Text("Luggage Space: ${trip.luggage}")])
+              ])
+            ])));
   }
 }
