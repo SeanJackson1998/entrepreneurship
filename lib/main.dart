@@ -5,7 +5,8 @@ import 'dart:async' show Future;
 import 'package:flutter/services.dart' show rootBundle;
 
 class Trip {
-  int id;
+  int tripId;
+  int driverId;
   String name;
   String destination;
   int timestamp;
@@ -14,7 +15,8 @@ class Trip {
   int luggage;
 
   Trip(
-      {this.id,
+      {this.tripId,
+        this.driverId,
       this.name,
       this.destination,
       this.timestamp,
@@ -24,7 +26,8 @@ class Trip {
 
   factory Trip.fromJson(Map<String, dynamic> parsedJson) {
     return Trip(
-        id: parsedJson['id'],
+        tripId: parsedJson['tripId'],
+        driverId: parsedJson['driverId'],
         name: parsedJson['name'],
         destination: parsedJson['destination'],
         timestamp: parsedJson['timestamp'],
@@ -68,9 +71,7 @@ class MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    print(widget.trips);
-
-    List<TripWidget> tripWidgets = buildTripContainers(widget.trips);
+    List<Widget> tripWidgets = buildTripContainers(widget.trips);
 
 //    return new MaterialApp(
 //      home: new Scaffold(
@@ -91,8 +92,6 @@ class MyAppState extends State<MyApp> {
             SliverList(
               delegate: SliverChildListDelegate(
                   tripWidgets
-                  //TripWidget(widget.trips[0]),
-                  //TripWidget(widget.trips[1]),
                 ,
               ),
             ),
@@ -102,9 +101,10 @@ class MyAppState extends State<MyApp> {
     ));
   }
 
-  List<TripWidget> buildTripContainers(List<Trip> trips) {
-    List<TripWidget> tripWidgets = [];
-    trips.forEach((trip) => tripWidgets.add(TripWidget(trip)));
+  List<Widget> buildTripContainers(List<Trip> trips) {
+    List<Widget> tripWidgets = [];
+    trips.forEach((trip) => tripWidgets.addAll([TripWidget(trip), SizedBox(height: 2)]));
+    print(tripWidgets);
     return tripWidgets;
   }
 }
@@ -118,7 +118,7 @@ class TripWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          print("Clicked the widget with id ${this.trip.id}"); // use this to go to the next screen with param trip
+          print("Clicked the widget with trip id ${this.trip.tripId}"); // use this to go to the next screen with param trip
         },
         child: Container(
             height: 100.0,
@@ -139,22 +139,27 @@ class TripWidget extends StatelessWidget {
                 Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[Text("Driver Name: ${trip.name}")]),
+                const SizedBox(height: 10),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       Text("Destination: ${trip.destination}")
                     ]),
+                const SizedBox(height: 10),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[Text("Timestamp: ${trip.timestamp}")])
               ]),
+              const SizedBox(width: 40),
               Column(mainAxisAlignment: MainAxisAlignment.center, children: [
                 Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[Text("Rating: ${trip.rating}")]),
+                const SizedBox(height: 10),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[Text("Passengers: ${trip.passengers}")]),
+                const SizedBox(height: 10),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[Text("Luggage Space: ${trip.luggage}")])
