@@ -1,0 +1,77 @@
+[
+  {
+    "trip": {
+      "tripId": 1,
+      "driverId": 1,
+      "name": "Aidan Saxon",
+      "destination": "Bristol",
+      "timestamp": 1234455541,
+      "rating": 5.0,
+      "passengers": 2,
+      "luggage": 1
+    },
+    "car": [
+      {
+        "name": "Jigna Parmar",
+        "destination": "Bristol",
+        "rating": 4.5,
+        "luggage": 0
+      },
+      {
+        "name": "Manav Gupta",
+        "destination": "Bristol",
+        "rating": 4.5,
+        "luggage": 2
+      }
+    ],
+    "requests": []
+  },
+  {
+    "trip": {
+      "tripId": 5,
+      "driverId": 1,
+      "name": "Aidan Saxon",
+      "destination": "Salcombe",
+      "timestamp": 1234455541,
+      "rating": 5.0,
+      "passengers": 3,
+      "luggage": 4
+    },
+    "car": [
+      {
+        "name": "Manam Jeff",
+        "destination": "Exeter",
+        "rating": 4.0,
+        "luggage": 1
+      }
+    ],
+    "requests": []
+  },
+  {
+    "trip": {
+      "tripId": 7,
+      "driverId": 1,
+      "name": "Aidan Saxon",
+      "destination": "Bristol",
+      "timestamp": 987654345,
+      "rating": 5.0,
+      "passengers": 2,
+      "luggage": 2
+    },
+    "car": [
+      {
+        "name": "Manam Jeff",
+        "destination": "Bristol",
+        "rating": 4.0,
+        "luggage": 1
+      },
+      {
+        "name": "Billy Gilmour",
+        "destination": "Bristol",
+        "rating": 5.0,
+        "luggage": 0
+      }
+    ],
+    "requests": []
+  }
+]
