@@ -116,11 +116,21 @@ class TripPageWidget extends StatelessWidget {
                     }
                     print(driverTrips[seanstrip].requests);
                     // write this object back to the file for driver1.json to complete request
+                    navigateToNextPage(context, driverTrips);
                   },
                 ),
               ],
             )
           ])
         ])));
+  }
+  Future navigateToNextPage(context, driverTrips) async {
+    updateFile('assets/driver1.json', driverTrips);
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => TripPageWidget(trip: trip)));
+  }
+
+  void updateFile(String s, driverTrips) async {
+
   }
 }
