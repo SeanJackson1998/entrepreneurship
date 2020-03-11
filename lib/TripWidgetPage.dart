@@ -49,7 +49,7 @@ class TripPageWidget extends StatelessWidget {
             child: Column(children: [
           const SizedBox(height: 50),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-            Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Column(mainAxisAlignment: MainAxisAlignment.start, children: [
               Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[Text("Driver Name: ${trip.name}")]),
@@ -63,7 +63,7 @@ class TripPageWidget extends StatelessWidget {
                   children: <Widget>[Text("Timestamp: ${trip.timestamp}")])
             ]),
             const SizedBox(width: 40),
-            Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Column(mainAxisAlignment: MainAxisAlignment.end, children: [
               Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[Text("Rating: ${trip.rating}")]),
@@ -124,13 +124,12 @@ class TripPageWidget extends StatelessWidget {
           ])
         ])));
   }
+
   Future navigateToNextPage(context, driverTrips) async {
     updateFile('assets/driver1.json', driverTrips);
     Navigator.push(context,
         MaterialPageRoute(builder: (context) => TripPageWidget(trip: trip)));
   }
 
-  void updateFile(String s, driverTrips) async {
-
-  }
+  void updateFile(String s, driverTrips) async {}
 }

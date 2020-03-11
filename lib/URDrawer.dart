@@ -28,7 +28,7 @@ class URDrawer extends Drawer {
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => DriverHomePage()));
+                  builder: (BuildContext context) => DriverMainPage()));
             },
           ),
           ListTile(

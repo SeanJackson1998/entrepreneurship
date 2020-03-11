@@ -10,13 +10,13 @@ class Trip {
 
   Trip(
       {this.tripId,
-        this.driverId,
-        this.name,
-        this.destination,
-        this.timestamp,
-        this.rating,
-        this.passengers,
-        this.luggage});
+      this.driverId,
+      this.name,
+      this.destination,
+      this.timestamp,
+      this.rating,
+      this.passengers,
+      this.luggage});
 
   factory Trip.fromJson(Map<String, dynamic> parsedJson) {
     return Trip(

@@ -49,10 +49,11 @@ class _PassengerMainPageState extends State<PassengerMainPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: AppBar(
-        title: Text("TripListView"),
+        title: Text("Local Trips"),
       ),
       drawer: URDrawer(),
       body: Container(
+        padding: EdgeInsets.all(10),
         child: CustomScrollView(
           slivers: <Widget>[
             SliverList(

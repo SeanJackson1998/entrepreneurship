@@ -15,12 +15,12 @@ class DriverTrip {
     var carList = parsedJson['car'] as List;
     print(carList.runtimeType); //returns List<dynamic>
     List<Passenger> passengerList =
-    carList.map((i) => Passenger.fromJson(i)).toList();
+        carList.map((i) => Passenger.fromJson(i)).toList();
 
     var reqList = parsedJson['requests'] as List;
     print(reqList.runtimeType); //returns List<dynamic>
     List<Passenger> requestList =
-    reqList.map((i) => Passenger.fromJson(i)).toList();
+        reqList.map((i) => Passenger.fromJson(i)).toList();
 
     return DriverTrip(
         trip: Trip.fromJson(parsedJson['trip']),
