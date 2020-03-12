@@ -3,7 +3,7 @@ class Trip {
   int driverId;
   String name;
   String destination;
-  int timestamp;
+  String timestamp;
   double rating;
   int passengers;
   int luggage;

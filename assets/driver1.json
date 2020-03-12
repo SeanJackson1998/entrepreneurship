@@ -5,7 +5,7 @@
       "driverId": 1,
       "name": "Aidan Saxon",
       "destination": "Bristol",
-      "timestamp": 1234455541,
+      "timestamp": "12:30 23/04/2020",
       "rating": 5.0,
       "passengers": 2,
       "luggage": 1
@@ -24,7 +24,14 @@
         "luggage": 2
       }
     ],
-    "requests": []
+    "requests": [
+      {
+        "name": "Sean Jackson",
+        "destination": "Bristol",
+        "rating": 4.5,
+        "luggage": 0
+      }
+    ]
   },
   {
     "trip": {
@@ -32,7 +39,7 @@
       "driverId": 1,
       "name": "Aidan Saxon",
       "destination": "Salcombe",
-      "timestamp": 1234455541,
+      "timestamp": "09:45 26/04/2020",
       "rating": 5.0,
       "passengers": 3,
       "luggage": 4
@@ -53,7 +60,7 @@
       "driverId": 1,
       "name": "Aidan Saxon",
       "destination": "Bristol",
-      "timestamp": 987654345,
+      "timestamp": "11:00 27/04/2020",
       "rating": 5.0,
       "passengers": 2,
       "luggage": 2

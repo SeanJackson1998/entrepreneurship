@@ -1,51 +1,23 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_app/PassengerMainPage.dart';
-import 'package:flutter_app/TripWidget.dart';
+import 'package:flutter_app/PassengerWidget.dart';
 
 import 'DriverTrip.dart';
-import 'Trip.dart';
-
-Future<String> load() async {
-  return await rootBundle.loadString('assets/driver1.json');
-}
-
-Future<List<DriverTrip>> loadTrips() async {
-  String jsonString = await load();
-  List<dynamic> jsonArray = json.decode(jsonString);
-  List<DriverTrip> trips =
-      jsonArray.map((el) => new DriverTrip.fromJson(el)).toList();
-  return trips;
-}
 
 // ignore: must_be_immutable
-class TripPageWidget extends StatelessWidget {
-  final Trip trip;
-  List<DriverTrip> driverTrips;
+class AcceptRequestPage extends StatelessWidget {
+  final Passenger passenger;
 
-  TripPageWidget({this.trip});
+  AcceptRequestPage({this.passenger});
 
-  void main() async {
-    WidgetsFlutterBinding.ensureInitialized();
-    this.driverTrips = await loadTrips();
-  }
 
   @override
   Widget build(BuildContext context) {
-    main();
-
-    Passenger sean = Passenger.fromJson({
-      "name": "Sean Jackson",
-      "destination": "Bristol",
-      "rating": 4.5,
-      "luggage": 0
-    });
 
     return new Scaffold(
         appBar: AppBar(
-          title: Text(trip.name + "'s trip to " + trip.destination),
+          title: Text("Passenger Review Page"),
         ),
         body: Container(
             padding: EdgeInsets.all(10),
@@ -56,7 +28,7 @@ class TripPageWidget extends StatelessWidget {
                   children: <Widget>[
                     Column(
                         mainAxisAlignment: MainAxisAlignment.start,
-                        children: [TripWidget(trip, false)])
+                        children: [PassengerWidget(passenger, false)])
                   ]),
               const SizedBox(height: 40),
               Row(
@@ -74,8 +46,11 @@ class TripPageWidget extends StatelessWidget {
                     ButtonBar(
                       children: <Widget>[
                         RaisedButton(
-                          child: Text('PREVIOUS'),
+                          color: Colors.red,
+                          child: Text('REJECT'),
                           onPressed: () {
+                            print("UPDATE DRIVER TRIPS FILE WITH THE PASSENGER OUT OF REQUESTS");
+
                             Navigator.pop(context);
                           },
                         ),
@@ -85,25 +60,15 @@ class TripPageWidget extends StatelessWidget {
                         RaisedButton(
                           color: Color(0XFF2699FB),
                           textColor: Colors.white,
-                          child: Text('REQUEST'),
+                          child: Text('ACCEPT'),
                           onPressed: () async {
-                            await _requestNotify(context);
+                            await _requestNotify(context, passenger.name);
 
-                            print("UPDATE DRIVER TRIPS FILE WITH THE REQUEST");
-                            print(driverTrips);
-                            // send a request to the driver file and add to the request section of that trip.
-                            // search for which trip was passed through
-                            int seanstrip = 0;
-                            for (int i = 0; i < driverTrips.length; i++) {
-                              if (driverTrips[i].trip.tripId == trip.tripId) {
-                                seanstrip = i;
-                                driverTrips[i].requests.add(sean);
-                              }
-                            }
-                            print(driverTrips[seanstrip].requests);
-                            // write this object back to the file for driver1.json to complete request
-                            navigateToNextPage(context, driverTrips);
-                          },
+                            print("UPDATE DRIVER TRIPS FILE WITH THE PASSENGER INTO THE CAR OUT OF REQUESTS");
+                            // Update the file with the object from request to the car
+
+                            Navigator.of(context).pop();
+                       },
                         ),
                       ],
                     )
@@ -111,17 +76,17 @@ class TripPageWidget extends StatelessWidget {
             ])));
   }
 
-  Future<void> _requestNotify(context) async {
+  Future<void> _requestNotify(context, passenger) async {
     return showDialog<void>(
       context: context,
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('REQUEST SENT'),
+          title: Text('REQUEST ACCEPTED'),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
-                Text('Your request has been sent.'),
+                Text('You have accepted $passenger into your car.'),
               ],
             ),
           ),
@@ -138,8 +103,7 @@ class TripPageWidget extends StatelessWidget {
     );
   }
 
-  Future navigateToNextPage(context, driverTrips) async {
-    updateFile('assets/driver1.json', driverTrips);
+  Future navigateToNextPage(context) async {
 
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => PassengerMainPage()));

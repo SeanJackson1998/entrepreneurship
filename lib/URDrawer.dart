@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import 'DriverMainPage.dart';
 import 'PassengerMainPage.dart';
@@ -24,7 +25,7 @@ class URDrawer extends Drawer {
           ),
           ListTile(
             title: Text("Driver"),
-            trailing: Icon(Icons.directions_car),
+            trailing: Icon(MdiIcons.steering),
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
@@ -33,7 +34,7 @@ class URDrawer extends Drawer {
           ),
           ListTile(
             title: Text("Passenger"),
-            trailing: Icon(Icons.group),
+            trailing: Icon(MdiIcons.seatPassenger),
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(

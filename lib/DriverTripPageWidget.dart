@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import 'DriverTrip.dart';
 import 'PassengerWidget.dart';
@@ -29,7 +30,7 @@ class DriverTripPageWidget extends StatelessWidget {
                   Container(
                       height: 100.0,
                       decoration: BoxDecoration(
-                        color: const Color(0xff7c94b6),
+                        color: Colors.lightBlue,
                         border: Border.all(
                           color: Colors.white,
                           width: 4,
@@ -48,16 +49,23 @@ class DriverTripPageWidget extends StatelessWidget {
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
                                       children: <Widget>[
-                                        Text(
-                                            "Destination: ${trip.trip.destination}")
+                                        Icon(
+                                          Icons.pin_drop,
+                                          size: 15.0,
+                                        ),
+                                        Text(" ${trip.trip.destination}",
+                                            style: TextStyle(fontSize: 15))
                                       ]),
                                   const SizedBox(height: 10),
                                   Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
                                       children: <Widget>[
+                                        Icon(MdiIcons.clock),
                                         Text(
-                                            "Timestamp: ${trip.trip.timestamp}")
+                                          "  ${trip.trip.timestamp}",
+                                          style: TextStyle(fontSize: 15),
+                                        )
                                       ])
                                 ]),
                             const SizedBox(width: 40),
@@ -67,6 +75,7 @@ class DriverTripPageWidget extends StatelessWidget {
                                   Row(
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: <Widget>[
+                                        Icon(MdiIcons.seatPassenger),
                                         Text(
                                             "Passengers: ${trip.trip.passengers}")
                                       ]),
@@ -74,6 +83,7 @@ class DriverTripPageWidget extends StatelessWidget {
                                   Row(
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: <Widget>[
+                                        Icon(MdiIcons.briefcasePlus),
                                         Text(
                                             "Luggage Space: ${trip.trip.luggage}")
                                       ])
@@ -87,7 +97,7 @@ class DriverTripPageWidget extends StatelessWidget {
                             style: TextStyle(fontSize: 30.0))
                       ]),
                   const SizedBox(height: 20),
-                  buildListOfPassengers(trip.requests),
+                  buildListOfPassengers(trip.requests, true),
                   const SizedBox(height: 40),
                   Row(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -96,7 +106,7 @@ class DriverTripPageWidget extends StatelessWidget {
                             style: TextStyle(fontSize: 30.0))
                       ]),
                   const SizedBox(height: 20),
-                  buildListOfPassengers(trip.car),
+                  buildListOfPassengers(trip.car, false),
                   const SizedBox(height: 40),
                   Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -121,9 +131,10 @@ class DriverTripPageWidget extends StatelessWidget {
             builder: (context) => DriverTripPageWidget(trip: trip)));
   }
 
-  Widget buildListOfPassengers(List<Passenger> passengers) {
-    List<Widget> passengerWidgets =
-        passengers.map((passenger) => PassengerWidget(passenger)).toList();
+  Widget buildListOfPassengers(List<Passenger> passengers, bool clickable) {
+    List<Widget> passengerWidgets = passengers
+        .map((passenger) => PassengerWidget(passenger, clickable))
+        .toList();
     return Container(
       child: Column(children: passengerWidgets),
     );

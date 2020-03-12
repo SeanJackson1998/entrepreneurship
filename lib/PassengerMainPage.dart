@@ -42,7 +42,7 @@ class _PassengerMainPageState extends State<PassengerMainPage> {
   }
 
   List<Widget> buildTripContainers(List<Trip> trips) {
-    return trips.map((trip) => TripWidget(trip)).toList();
+    return trips.map((trip) => TripWidget(trip, true)).toList();
   }
 
   @override

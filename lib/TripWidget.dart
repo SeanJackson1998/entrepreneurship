@@ -1,25 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
+import 'package:rating_bar/rating_bar.dart';
 
 import 'Trip.dart';
 import 'TripWidgetPage.dart';
 
 class TripWidget extends StatelessWidget {
   final Trip trip;
+  final bool clickable;
 
-  TripWidget(this.trip);
+  TripWidget(this.trip, this.clickable);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          print(
-              "Clicked the widget with trip id ${this.trip.tripId}"); // use this to go to the next screen with param trip
-          navigateToNextPage(context, trip);
+          if (clickable) {
+            print(
+                "Clicked the widget with trip id ${this.trip.tripId}"); // use this to go to the next screen with param trip
+            navigateToNextPage(context, trip);
+          }
         },
         child: Container(
             height: 100.0,
             decoration: BoxDecoration(
-              color: const Color(0xff7c94b6),
+              color: Colors.lightBlue,
               border: Border.all(
                 color: Colors.white,
                 width: 4,
@@ -33,34 +39,68 @@ class TripWidget extends StatelessWidget {
                 Widget>[
               Column(mainAxisAlignment: MainAxisAlignment.center, children: [
                 Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[Text("Driver Name: ${trip.name}")]),
-                const SizedBox(height: 10),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      Text("Destination: ${trip.destination}")
+                      Icon(MdiIcons.steering),
+                      Text("  ${trip.name}  ", style: TextStyle(fontSize: 15)),
                     ]),
                 const SizedBox(height: 10),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[Text("Timestamp: ${trip.timestamp}")])
+                    children: <Widget>[
+                      Icon(
+                        Icons.pin_drop,
+                        size: 15.0,
+                      ),
+                      Text(
+                        "  ${trip.destination}",
+                        style: TextStyle(fontSize: 15),
+                      )
+                    ]),
+                const SizedBox(height: 10),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Icon(MdiIcons.clock),
+                      Text(
+                        "  ${trip.timestamp}",
+                        style: TextStyle(fontSize: 15),
+                      )
+                    ]),
               ]),
               const SizedBox(width: 40),
               Column(mainAxisAlignment: MainAxisAlignment.center, children: [
                 Row(
                     mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[Text("Rating: ${trip.rating}")]),
-                const SizedBox(height: 10),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      Text("Passenger Spaces: ${trip.passengers}")
+                      RatingBar.readOnly(
+                        initialRating: trip.rating,
+                        isHalfAllowed: true,
+                        halfFilledIcon: Icons.star_half,
+                        filledIcon: Icons.star,
+                        emptyIcon: Icons.star_border,
+                        size: 20.0,
+                        emptyColor: Colors.amberAccent,
+                        filledColor: Colors.amberAccent,
+                      ),
                     ]),
                 const SizedBox(height: 10),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[Text("Luggage Spaces: ${trip.luggage}")])
+                    children: <Widget>[
+                      Text(
+                        "${trip.passengers}  ",
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      Icon(MdiIcons.carSeat),
+                    ]),
+                const SizedBox(height: 10),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      Text("${trip.luggage}  ", style: TextStyle(fontSize: 15)),
+                      Icon(MdiIcons.briefcase)
+                    ])
               ])
             ])));
   }

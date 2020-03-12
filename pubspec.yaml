@@ -20,6 +20,11 @@ dependencies:
   flutter:
     sdk: flutter
   path_provider: ^0.4.1
+  rating_bar: ^0.2.0
+  open_iconic_flutter: ^0.3.0
+  easy_alert: ^0.0.8
+  line_icons: ^0.2.0
+  material_design_icons_flutter: 3.4.5045
 
 
   # The following adds the Cupertino Icons font to your application.

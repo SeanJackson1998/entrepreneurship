@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/DriverTrip.dart';
+import 'package:line_icons/line_icons.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:open_iconic_flutter/open_iconic_flutter.dart';
 
 import 'DriverTripPageWidget.dart';
-import 'TripWidgetPage.dart';
 
 class DriverTripWidget extends StatelessWidget {
   final DriverTrip trip;
@@ -20,7 +22,7 @@ class DriverTripWidget extends StatelessWidget {
         child: Container(
             height: 100.0,
             decoration: BoxDecoration(
-              color: const Color(0xff7c94b6),
+              color: Colors.lightBlue,
               border: Border.all(
                 color: Colors.white,
                 width: 4,
@@ -36,39 +38,57 @@ class DriverTripWidget extends StatelessWidget {
                 Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
-                      Text("Destination: ${trip.trip.destination}")
+                      Icon(
+                        Icons.pin_drop,
+                        size: 15.0,
+                      ),
+                      Text(" ${trip.trip.destination}",
+                          style: TextStyle(fontSize: 15))
                     ]),
                 const SizedBox(height: 10),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
-                      Text("Timestamp: ${trip.trip.timestamp}")
+                      Icon(MdiIcons.clock),
+                      Text(
+                        "  ${trip.trip.timestamp}",
+                        style: TextStyle(fontSize: 15),
+                      )
                     ]),
                 const SizedBox(height: 10),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
-                      Text("Requests: ${trip.requests.length}")
+                      Icon(
+                        OpenIconicIcons.envelopeClosed,
+                      ),
+                      Text(
+                        "  ${trip.requests.length}",
+                        style: TextStyle(fontSize: 15),
+                      )
                     ])
               ]),
-              const SizedBox(width: 40),
+              const SizedBox(width: 30),
               Column(mainAxisAlignment: MainAxisAlignment.center, children: [
                 Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      Text("Current Passengers: ${trip.car.length}")
+                      Icon(MdiIcons.seatPassenger),
+                      Text("  ${trip.car.length}")
                     ]),
                 const SizedBox(height: 10),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      Text("Passenger Spaces: ${trip.trip.passengers}")
+                      Icon(MdiIcons.carSeat),
+                      Text("  ${trip.trip.passengers}")
                     ]),
                 const SizedBox(height: 10),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      Text("Luggage Spaces: ${trip.trip.luggage}")
+                      Icon(MdiIcons.briefcasePlus),
+                      Text("  ${trip.trip.luggage}")
                     ])
               ])
             ])));
