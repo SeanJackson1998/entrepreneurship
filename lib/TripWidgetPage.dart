@@ -44,6 +44,7 @@ class TripPageWidget extends StatelessWidget {
     });
 
     return new Scaffold(
+      backgroundColor: Colors.lightBlue,
         appBar: AppBar(
           title: Text(trip.name + "'s trip to " + trip.destination),
         ),

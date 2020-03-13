@@ -27,12 +27,16 @@ class PassengerMainPage extends StatefulWidget {
 // ignore: must_be_immutable
 class _PassengerMainPageState extends State<PassengerMainPage> {
   List<Trip> trips = [];
+  List<Trip> items = [];
+
+  TextEditingController editingController = TextEditingController();
 
   void fetchData() async {
     var data = await loadTrips();
     setState(() {
       trips = data;
     });
+    items.addAll(trips);
   }
 
   @override
@@ -42,27 +46,70 @@ class _PassengerMainPageState extends State<PassengerMainPage> {
   }
 
   List<Widget> buildTripContainers(List<Trip> trips) {
+    print(trips.length);
+    trips = trips
+        .where((trip) => trip.driverId != 1)
+        .toList(); // COMMENT THIS LINE WHEN WE WANT TO SHOW ALL AVAILABLE TRIPS
     return trips.map((trip) => TripWidget(trip, true)).toList();
   }
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: AppBar(
-        title: Text("Local Trips"),
-      ),
-      drawer: URDrawer(),
-      body: Container(
-        padding: EdgeInsets.all(10),
-        child: CustomScrollView(
-          slivers: <Widget>[
-            SliverList(
-              delegate:
-                  SliverChildListDelegate(buildTripContainers(this.trips)),
-            ),
-          ],
+        appBar: AppBar(
+          title: Text("Available Trips"),
         ),
-      ),
-    );
+        drawer: URDrawer(),
+        body: SingleChildScrollView(
+          padding: EdgeInsets.all(10),
+          child: Column(children: [
+//            const SizedBox(height: 10),
+            Row(children: [
+              Expanded(
+                  child: TextField(
+                onChanged: (value) {
+                  print(value);
+                  filterSearchResults(value);
+                },
+                controller: editingController,
+                decoration: InputDecoration(
+                    labelText: "Search",
+                    hintText: "Search",
+                    prefixIcon: Icon(Icons.search),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(25.0)))),
+              ))
+            ]),
+//            const SizedBox(height: 10),
+            Column(children: buildTripContainers(items))
+          ]),
+        ));
+  }
+
+  void filterSearchResults(String query) {
+    List<Trip> allTrips = List<Trip>();
+    allTrips.addAll(this.trips);
+    print(allTrips.length);
+    if (query.isNotEmpty) {
+      List<Trip> searchTrips = List<Trip>();
+      allTrips.forEach((item) {
+        if (item.destination.toLowerCase().contains(query.toLowerCase())) {
+          searchTrips.add(item);
+          print(item.destination);
+        }
+      });
+      print(searchTrips.length);
+      print("=======================================");
+      setState(() {
+        items.clear();
+        items.addAll(searchTrips);
+      });
+      return;
+    } else {
+      setState(() {
+        items.clear();
+        items.addAll(this.trips);
+      });
+    }
   }
 }
