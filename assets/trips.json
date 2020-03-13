@@ -7,7 +7,9 @@
     "timestamp": "12:30 23/04/2020",
     "rating": 5.0,
     "passengers": 2,
-    "luggage": 1
+    "luggage": 1,
+    "price": 3.00,
+    "phone": "01234567891"
   },
   {
     "tripId": 2,
@@ -17,7 +19,9 @@
     "timestamp": "10:15 22/04/2020",
     "rating": 4.5,
     "passengers": 1,
-    "luggage": 1
+    "luggage": 1,
+    "price": 3.00,
+    "phone": "09876567891"
   },
   {
     "tripId": 3,
@@ -27,7 +31,9 @@
     "timestamp": "14:30 24/04/2020",
     "rating": 4.0,
     "passengers": 4,
-    "luggage": 3
+    "luggage": 3,
+    "price": 2.50,
+    "phone": "09876987891"
   },
   {
     "tripId": 4,
@@ -37,7 +43,9 @@
     "timestamp": "11:30 25/04/2020",
     "rating": 3.5,
     "passengers": 3,
-    "luggage": 1
+    "luggage": 1,
+    "price": 1.00,
+    "phone": "09987654321"
   },
   {
     "tripId": 5,
@@ -47,7 +55,9 @@
     "timestamp": "09:45 26/04/2020",
     "rating": 5.0,
     "passengers": 3,
-    "luggage": 4
+    "luggage": 4,
+    "price": 1.50,
+    "phone": "01234567891"
   },
   {
     "tripId": 6,
@@ -57,7 +67,9 @@
     "timestamp": "16:30 26/04/2020",
     "rating": 4.5,
     "passengers": 3,
-    "luggage": 1
+    "luggage": 1,
+    "price": 2.00,
+    "phone": "09876567891"
   },
   {
     "tripId": 7,
@@ -67,7 +79,9 @@
     "timestamp": "11:00 27/04/2020",
     "rating": 5.0,
     "passengers": 2,
-    "luggage": 2
+    "luggage": 2,
+    "price": 3.00,
+    "phone": "01234567891"
   },
   {
     "tripId": 8,
@@ -77,7 +91,9 @@
     "timestamp": "11:30 27/04/2020",
     "rating": 4.0,
     "passengers": 1,
-    "luggage": 1
+    "luggage": 1,
+    "price": 2.00,
+    "phone": "09876987891"
   },
   {
     "tripId": 9,
@@ -87,7 +103,9 @@
     "timestamp": "13:30 27/04/2020",
     "rating": 4.0,
     "passengers": 1,
-    "luggage": 1
+    "luggage": 1,
+    "price": 3.00,
+    "phone": "077345623455"
   },
   {
     "tripId": 10,
@@ -97,16 +115,68 @@
     "timestamp": "11:30 28/04/2020",
     "rating": 4.0,
     "passengers": 1,
-    "luggage": 1
+    "luggage": 1,
+    "price": 2.00,
+    "phone": "077345623455"
   },
   {
     "tripId": 11,
     "driverId": 4,
     "name": "Jack Quick",
-    "destination": "Bristol",
+    "destination": "Reading",
     "timestamp": "14:30 28/04/2020",
     "rating": 3.5,
     "passengers": 3,
-    "luggage": 2
+    "luggage": 2,
+    "price": 8.00,
+    "phone": "09987654321"
+  },
+  {
+    "tripId": 12,
+    "driverId": 4,
+    "name": "Henry Amos",
+    "destination": "London",
+    "timestamp": "14:30 25/04/2020",
+    "rating": 3.5,
+    "passengers": 3,
+    "luggage": 2,
+    "price": 9.00,
+    "phone": "09876987891"
+  },
+  {
+    "tripId": 13,
+    "driverId": 1,
+    "name": "Aidan Saxon",
+    "destination": "London",
+    "timestamp": "14:30 01/05/2020",
+    "rating": 5.0,
+    "passengers": 3,
+    "luggage": 2,
+    "price": 10.00,
+    "phone": "01234567891"
+  },
+  {
+    "tripId": 14,
+    "driverId": 5,
+    "name": "Joe Davison",
+    "destination": "London",
+    "timestamp": "11:30 28/04/2020",
+    "rating": 4.0,
+    "passengers": 1,
+    "luggage": 1,
+    "price": 12.00,
+    "phone": "077345623455"
+  },
+  {
+    "tripId": 15,
+    "driverId": 5,
+    "name": "Kate Mainwaring",
+    "destination": "London",
+    "timestamp": "09:30 26/04/2020",
+    "rating": 5.0,
+    "passengers": 1,
+    "luggage": 1,
+    "price": 13.00,
+    "phone": "09876567891"
   }
 ]

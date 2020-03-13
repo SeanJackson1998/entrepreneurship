@@ -64,14 +64,17 @@ class Passenger {
   String destination;
   double rating;
   int luggage;
+  String phone;
 
-  Passenger({this.name, this.destination, this.rating, this.luggage});
+  Passenger(
+      {this.name, this.destination, this.rating, this.luggage, this.phone});
 
   factory Passenger.fromJson(Map<String, dynamic> parsedJson) {
     return Passenger(
         name: parsedJson['name'],
         destination: parsedJson['destination'],
         rating: parsedJson['rating'],
-        luggage: parsedJson['luggage']);
+        luggage: parsedJson['luggage'],
+        phone: parsedJson['phone']);
   }
 }

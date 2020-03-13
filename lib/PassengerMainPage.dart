@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:open_iconic_flutter/open_iconic_flutter.dart';
 
 import 'Trip.dart';
 import 'TripWidget.dart';
@@ -28,6 +30,7 @@ class PassengerMainPage extends StatefulWidget {
 class _PassengerMainPageState extends State<PassengerMainPage> {
   List<Trip> trips = [];
   List<Trip> items = [];
+  int _selectedIndex = 0;
 
   TextEditingController editingController = TextEditingController();
 
@@ -53,6 +56,12 @@ class _PassengerMainPageState extends State<PassengerMainPage> {
     return trips.map((trip) => TripWidget(trip, true)).toList();
   }
 
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -60,6 +69,25 @@ class _PassengerMainPageState extends State<PassengerMainPage> {
           title: Text("Available Trips"),
         ),
         drawer: URDrawer(),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              title: Text('Home'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(OpenIconicIcons.envelopeClosed, size: 20),
+              title: Text('Requests'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(MdiIcons.car),
+              title: Text('Trips'),
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.amber[800],
+          onTap: _onItemTapped,
+        ),
         body: SingleChildScrollView(
           padding: EdgeInsets.all(10),
           child: Column(children: [

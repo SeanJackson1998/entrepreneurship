@@ -90,6 +90,15 @@ class DriverTripWidget extends StatelessWidget {
                       Icon(MdiIcons.briefcasePlus),
                       Text("  ${trip.trip.luggage}")
                     ])
+              ]),
+              const SizedBox(width: 30),
+              Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+                SizedBox(height: 10),
+                CircleAvatar(
+                  backgroundColor: Colors.red,
+                  child: Text("£${(trip.trip.price).round()}",
+                      style: TextStyle(fontSize: 20, color: Colors.black)),
+                )
               ])
             ])));
   }

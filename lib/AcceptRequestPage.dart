@@ -28,7 +28,7 @@ class AcceptRequestPage extends StatelessWidget {
                   children: <Widget>[
                     Column(
                         mainAxisAlignment: MainAxisAlignment.start,
-                        children: [PassengerWidget(passenger, false)])
+                        children: [PassengerWidget(passenger, false, false)])
                   ]),
               const SizedBox(height: 40),
               Row(
@@ -62,7 +62,7 @@ class AcceptRequestPage extends StatelessWidget {
                           textColor: Colors.white,
                           child: Text('ACCEPT'),
                           onPressed: () async {
-                            await _requestNotify(context, passenger.name);
+                            await _requestNotify(context, passenger.name, passenger.phone);
 
                             print("UPDATE DRIVER TRIPS FILE WITH THE PASSENGER INTO THE CAR OUT OF REQUESTS");
                             // Update the file with the object from request to the car
@@ -76,7 +76,7 @@ class AcceptRequestPage extends StatelessWidget {
             ])));
   }
 
-  Future<void> _requestNotify(context, passenger) async {
+  Future<void> _requestNotify(context, passenger, phone) async {
     return showDialog<void>(
       context: context,
       barrierDismissible: false, // user must tap button!
@@ -87,6 +87,7 @@ class AcceptRequestPage extends StatelessWidget {
             child: ListBody(
               children: <Widget>[
                 Text('You have accepted $passenger into your car.'),
+                Text('This is their phone number: $phone'),
               ],
             ),
           ),

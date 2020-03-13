@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -101,6 +102,14 @@ class TripWidget extends StatelessWidget {
                       Text("${trip.luggage}  ", style: TextStyle(fontSize: 15)),
                       Icon(MdiIcons.briefcase)
                     ])
+              ]),
+              const SizedBox(height: 10),
+              Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+                SizedBox(height: 10),
+                CircleAvatar(
+                  backgroundColor: Colors.red,
+                  child: Text("£${(trip.price).round()}", style: TextStyle(fontSize: 20, color: Colors.black)),
+                )
               ])
             ])));
   }

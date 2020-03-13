@@ -7,6 +7,8 @@ class Trip {
   double rating;
   int passengers;
   int luggage;
+  double price;
+  String phone;
 
   Trip(
       {this.tripId,
@@ -16,7 +18,9 @@ class Trip {
       this.timestamp,
       this.rating,
       this.passengers,
-      this.luggage});
+      this.luggage,
+      this.price,
+      this.phone});
 
   factory Trip.fromJson(Map<String, dynamic> parsedJson) {
     return Trip(
@@ -27,6 +31,8 @@ class Trip {
         timestamp: parsedJson['timestamp'],
         rating: parsedJson['rating'],
         passengers: parsedJson['passengers'],
-        luggage: parsedJson['luggage']);
+        luggage: parsedJson['luggage'],
+        price: parsedJson['price'],
+        phone: parsedJson['phone']);
   }
 }

@@ -8,20 +8,25 @@
       "timestamp": "12:30 23/04/2020",
       "rating": 5.0,
       "passengers": 2,
-      "luggage": 1
+      "luggage": 1,
+      "price": 3.00,
+      "phone": "01234567891"
     },
     "car": [
       {
         "name": "Jigna Parmar",
         "destination": "Bristol",
         "rating": 4.5,
-        "luggage": 0
+        "luggage": 0,
+        "phone": "07762845632"
       },
       {
         "name": "Manav Gupta",
         "destination": "Bristol",
         "rating": 4.5,
-        "luggage": 2
+        "luggage": 2,
+        "phone": "07264946289"
+
       }
     ],
     "requests": [
@@ -29,7 +34,8 @@
         "name": "Sean Jackson",
         "destination": "Bristol",
         "rating": 4.5,
-        "luggage": 0
+        "luggage": 0,
+        "phone": "07759247490"
       }
     ]
   },
@@ -42,14 +48,17 @@
       "timestamp": "09:45 26/04/2020",
       "rating": 5.0,
       "passengers": 3,
-      "luggage": 4
+      "luggage": 4,
+      "price": 1.50,
+      "phone": "01234567891"
     },
     "car": [
       {
         "name": "Manam Jeff",
         "destination": "Exeter",
         "rating": 4.0,
-        "luggage": 1
+        "luggage": 1,
+        "phone": "07123968324"
       }
     ],
     "requests": []
@@ -63,22 +72,65 @@
       "timestamp": "11:00 27/04/2020",
       "rating": 5.0,
       "passengers": 2,
-      "luggage": 2
+      "luggage": 2,
+      "price": 3.00,
+      "phone": "01234567891"
     },
     "car": [
       {
         "name": "Manam Jeff",
         "destination": "Bristol",
         "rating": 4.0,
-        "luggage": 1
+        "luggage": 1,
+        "phone": "07123968324"
       },
       {
         "name": "Billy Gilmour",
         "destination": "Bristol",
         "rating": 5.0,
-        "luggage": 0
+        "luggage": 0,
+        "phone": "07982530224"
       }
     ],
     "requests": []
+  },
+  {
+    "trip": {
+      "tripId": 13,
+      "driverId": 1,
+      "name": "Aidan Saxon",
+      "destination": "London",
+      "timestamp": "14:30 01/05/2020",
+      "rating": 5.0,
+      "passengers": 3,
+      "luggage": 2,
+      "price": 10.00,
+      "phone": "01234567891"
+    },
+    "car": [
+      {
+        "name": "Alicja Marczak",
+        "destination": "Reading",
+        "rating": 4.5,
+        "luggage": 1,
+        "phone": "07345184963"
+      },
+      {
+        "name": "Billy Gilmour",
+        "destination": "Swindon",
+        "rating": 5.0,
+        "luggage": 0,
+        "phone": "07982530224"
+      }
+    ],
+    "requests": [
+      {
+        "name": "Ed Howes",
+        "destination": "London",
+        "rating": 4.0,
+        "luggage": 1,
+        "phone": "07823775980"
+      }
+    ]
   }
 ]
