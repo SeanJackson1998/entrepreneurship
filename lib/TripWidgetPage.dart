@@ -60,13 +60,17 @@ class TripPageWidget extends StatelessWidget {
                         children: [TripWidget(trip, false)])
                   ]),
               const SizedBox(height: 40),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[Text("PUT THE GOOGLE MAPS THING HERE")]),
               Container(
                 height: 300.0,
-                width: 300.0,
-                color: Colors.blueAccent,
+                width: 320.0,
+                decoration: new BoxDecoration(
+                  image: DecorationImage(
+                    image: new AssetImage(
+                        'assets/London.png'),
+                    fit: BoxFit.fill,
+                  ),
+                  //shape: BoxShape.circle,
+                ),
               ),
               const SizedBox(height: 30),
               Row(

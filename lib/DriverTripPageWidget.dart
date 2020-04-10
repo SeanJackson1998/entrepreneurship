@@ -108,15 +108,17 @@ class DriverTripPageWidget extends StatelessWidget {
                   const SizedBox(height: 20),
                   buildListOfPassengers(trip.car, false, true),
                   const SizedBox(height: 40),
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text("PUT THE GOOGLE MAPS THING HERE")
-                      ]),
                   Container(
-                    height: 400.0,
-                    width: 300.0,
-                    color: Colors.blueAccent,
+                    height: 300.0,
+                    width: 320.0,
+                    decoration: new BoxDecoration(
+                      image: DecorationImage(
+                        image: new AssetImage(
+                            'assets/London.png'),
+                        fit: BoxFit.fill,
+                      ),
+                      shape: BoxShape.circle,
+                    ),
                   ),
                   const SizedBox(height: 30)
                 ]),
