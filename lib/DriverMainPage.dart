@@ -34,7 +34,8 @@ class _DriverMainPageState extends State<DriverMainPage> {
   final List<Widget> _children = [
     DriverMainPage(),
     AddTripPage(),
-    ];
+  ];
+
   void fetchData() async {
     var data = await loadTrips();
     setState(() {
@@ -56,18 +57,17 @@ class _DriverMainPageState extends State<DriverMainPage> {
     setState(() {
       _currentIndex = index;
       Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => _children[index]));
+          context, MaterialPageRoute(builder: (context) => _children[index]));
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      backgroundColor: Color.fromRGBO(121, 121, 121, 1.0),
       appBar: AppBar(
-        title: Text("My Trips"),
-      ),
+          title: Text("My Trips"),
+          backgroundColor: Color.fromRGBO(126, 180, 75, 1.0)),
       drawer: URDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[

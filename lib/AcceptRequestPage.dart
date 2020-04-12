@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_app/PassengerMainPage.dart';
 import 'package:flutter_app/PassengerWidget.dart';
@@ -11,14 +10,13 @@ class AcceptRequestPage extends StatelessWidget {
 
   AcceptRequestPage({this.passenger});
 
-
   @override
   Widget build(BuildContext context) {
-
     return new Scaffold(
+        backgroundColor: Color.fromRGBO(121, 121, 121, 1.0),
         appBar: AppBar(
-          title: Text("Passenger Review Page"),
-        ),
+            title: Text("Passenger Review Page"),
+            backgroundColor: Color.fromRGBO(126, 180, 75, 1.0)),
         body: Container(
             padding: EdgeInsets.all(10),
             child: Column(children: [
@@ -31,13 +29,15 @@ class AcceptRequestPage extends StatelessWidget {
                         children: [PassengerWidget(passenger, false, false)])
                   ]),
               const SizedBox(height: 40),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[Text("PUT THE GOOGLE MAPS THING HERE")]),
               Container(
                 height: 300.0,
-                width: 300.0,
-                color: Colors.blueAccent,
+                width: 320.0,
+                decoration: new BoxDecoration(
+                  image: DecorationImage(
+                    image: new AssetImage('assets/London.png'),
+                    fit: BoxFit.fill,
+                  ),
+                ),
               ),
               const SizedBox(height: 30),
               Row(
@@ -49,7 +49,8 @@ class AcceptRequestPage extends StatelessWidget {
                           color: Colors.red,
                           child: Text('REJECT'),
                           onPressed: () {
-                            print("UPDATE DRIVER TRIPS FILE WITH THE PASSENGER OUT OF REQUESTS");
+                            print(
+                                "UPDATE DRIVER TRIPS FILE WITH THE PASSENGER OUT OF REQUESTS");
 
                             Navigator.pop(context);
                           },
@@ -62,13 +63,15 @@ class AcceptRequestPage extends StatelessWidget {
                           textColor: Colors.white,
                           child: Text('ACCEPT'),
                           onPressed: () async {
-                            await _requestNotify(context, passenger.name, passenger.phone);
+                            await _requestNotify(
+                                context, passenger.name, passenger.phone);
 
-                            print("UPDATE DRIVER TRIPS FILE WITH THE PASSENGER INTO THE CAR OUT OF REQUESTS");
+                            print(
+                                "UPDATE DRIVER TRIPS FILE WITH THE PASSENGER INTO THE CAR OUT OF REQUESTS");
                             // Update the file with the object from request to the car
 
                             Navigator.of(context).pop();
-                       },
+                          },
                         ),
                       ],
                     )
@@ -105,7 +108,6 @@ class AcceptRequestPage extends StatelessWidget {
   }
 
   Future navigateToNextPage(context) async {
-
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => PassengerMainPage()));
   }

@@ -29,7 +29,7 @@ class PassengerWidget extends StatelessWidget {
         child: Container(
             height: 100.0,
             decoration: BoxDecoration(
-              color: Colors.lightBlue,
+              color: Color.fromRGBO(166, 206, 59, 1.0),
               border: Border.all(
                 color: Colors.white,
                 width: 4,

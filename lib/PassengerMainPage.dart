@@ -50,9 +50,7 @@ class _PassengerMainPageState extends State<PassengerMainPage> {
 
   List<Widget> buildTripContainers(List<Trip> trips) {
     print(trips.length);
-    trips = trips
-        .where((trip) => trip.driverId != 1)
-        .toList(); // COMMENT THIS LINE WHEN WE WANT TO SHOW ALL AVAILABLE TRIPS
+    trips = trips.where((trip) => trip.driverId != 1).toList(); // COMMENT THIS LINE WHEN WE WANT TO SHOW ALL AVAILABLE TRIPS
     return trips.map((trip) => TripWidget(trip, true)).toList();
   }
 
@@ -65,9 +63,10 @@ class _PassengerMainPageState extends State<PassengerMainPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+        backgroundColor: Color.fromRGBO(121, 121, 121, 1.0),
         appBar: AppBar(
-          title: Text("Available Trips"),
-        ),
+            title: Text("Available Trips"),
+            backgroundColor: Color.fromRGBO(126, 180, 75, 1.0)),
         drawer: URDrawer(),
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
@@ -108,7 +107,7 @@ class _PassengerMainPageState extends State<PassengerMainPage> {
                         borderRadius: BorderRadius.all(Radius.circular(25.0)))),
               ))
             ]),
-//            const SizedBox(height: 10),
+            const SizedBox(height: 10),
             Column(children: buildTripContainers(items))
           ]),
         ));

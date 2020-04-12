@@ -44,9 +44,10 @@ class TripPageWidget extends StatelessWidget {
     });
 
     return new Scaffold(
-      backgroundColor: Colors.lightBlue,
+        backgroundColor: Color.fromRGBO(121, 121, 121, 1.0),
         appBar: AppBar(
           title: Text(trip.name + "'s trip to " + trip.destination),
+            backgroundColor: Color.fromRGBO(126, 180, 75, 1.0),
         ),
         body: Container(
             padding: EdgeInsets.all(10),

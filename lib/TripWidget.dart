@@ -26,7 +26,7 @@ class TripWidget extends StatelessWidget {
         child: Container(
             height: 100.0,
             decoration: BoxDecoration(
-              color: Colors.lightBlue,
+              color: Color.fromRGBO(166, 206, 59, 1.0),
               border: Border.all(
                 color: Colors.white,
                 width: 4,
@@ -107,7 +107,7 @@ class TripWidget extends StatelessWidget {
               Column(mainAxisAlignment: MainAxisAlignment.center, children: [
                 SizedBox(height: 10),
                 CircleAvatar(
-                  backgroundColor: Colors.red,
+                  backgroundColor: Color.fromRGBO(212, 228, 154, 1.0),
                   child: Text("£${(trip.price).round()}", style: TextStyle(fontSize: 20, color: Colors.black)),
                 )
               ])

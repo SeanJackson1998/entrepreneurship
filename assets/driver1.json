@@ -47,7 +47,7 @@
       "destination": "Uni of Bath",
       "timestamp": "09:45 26/04/2020",
       "rating": 5.0,
-      "passengers": 3,
+      "passengers": 2,
       "luggage": 4,
       "price": 1.50,
       "phone": "01234567891"
@@ -102,9 +102,9 @@
       "destination": "London",
       "timestamp": "14:30 01/05/2020",
       "rating": 5.0,
-      "passengers": 3,
-      "luggage": 2,
-      "price": 10.00,
+      "passengers": 1,
+      "luggage": 0,
+      "price": 8.00,
       "phone": "01234567891"
     },
     "car": [
@@ -121,16 +121,35 @@
         "rating": 5.0,
         "luggage": 0,
         "phone": "07982530224"
+      },
+      {
+        "name": "Catherine Jackson",
+        "destination": "London",
+        "rating": 5.0,
+        "luggage": 2,
+        "phone": "07823775980"
       }
     ],
     "requests": [
-      {
-        "name": "Ed Howes",
-        "destination": "London",
-        "rating": 4.0,
-        "luggage": 1,
-        "phone": "07823775980"
-      }
+
+    ]
+  },
+  {
+    "trip": {
+      "tripId": 16,
+      "driverId": 1,
+      "name": "Aidan Saxon",
+      "destination": "Salcombe",
+      "timestamp": "12:00 24/04/2020",
+      "rating": 5.0,
+      "passengers": 3,
+      "luggage": 3,
+      "price": 7.00,
+      "phone": "01234567891"
+    },
+    "car": [
+    ],
+    "requests": [
     ]
   }
 ]

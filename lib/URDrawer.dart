@@ -11,15 +11,27 @@ class URDrawer extends Drawer {
       child: ListView(
         children: <Widget>[
           UserAccountsDrawerHeader(
-            accountName: Text("Aidan Saxon"),
-            accountEmail: Text("adian.saxon@bath.ac.uk"),
+            decoration: BoxDecoration(
+              color: Color.fromRGBO(126, 180, 75, 1.0),
+            ),
+            /*accountName: Text("Catherine Jackson"),
+            accountEmail: Text("cj420@bath.ac.uk"),
             currentAccountPicture: CircleAvatar(
-              backgroundColor: Theme.of(context).platform == TargetPlatform.iOS
-                  ? Colors.blue
-                  : Colors.white,
+              backgroundColor: Colors.white,
+              child: Text(
+                "C",
+                style: TextStyle(fontSize: 40.0, color: Color.fromRGBO(121, 121, 121, 1.0),
+              ),
+              ),
+            ),*/
+            accountName: Text("Aidan Saxon"),
+            accountEmail: Text("as3086@bath.ac.uk"),
+            currentAccountPicture: CircleAvatar(
+              backgroundColor: Colors.white,
               child: Text(
                 "A",
-                style: TextStyle(fontSize: 40.0),
+                style: TextStyle(fontSize: 40.0, color: Color.fromRGBO(121, 121, 121, 1.0),
+                ),
               ),
             ),
           ),

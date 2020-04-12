@@ -150,9 +150,9 @@
     "destination": "London",
     "timestamp": "14:30 01/05/2020",
     "rating": 5.0,
-    "passengers": 3,
-    "luggage": 2,
-    "price": 10.00,
+    "passengers": 1,
+    "luggage": 0,
+    "price": 8.00,
     "phone": "01234567891"
   },
   {
@@ -178,5 +178,17 @@
     "luggage": 1,
     "price": 13.00,
     "phone": "09876567891"
+  },
+  {
+    "tripId": 16,
+    "driverId": 1,
+    "name": "Aidan Saxon",
+    "destination": "Salcombe",
+    "timestamp": "12:00 24/04/2020",
+    "rating": 5.0,
+    "passengers": 3,
+    "luggage": 3,
+    "price": 7.00,
+    "phone": "01234567891"
   }
 ]

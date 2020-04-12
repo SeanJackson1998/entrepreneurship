@@ -13,9 +13,10 @@ class DriverTripPageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+        backgroundColor: Color.fromRGBO(121, 121, 121, 1.0),
         appBar: AppBar(
-          title: Text("My trip to " + trip.trip.destination),
-        ),
+            title: Text("My trip to " + trip.trip.destination),
+            backgroundColor: Color.fromRGBO(126, 180, 75, 1.0)),
         body: Container(
             padding: EdgeInsets.all(10),
             child: CustomScrollView(slivers: <Widget>[
@@ -30,7 +31,7 @@ class DriverTripPageWidget extends StatelessWidget {
                   Container(
                       height: 100.0,
                       decoration: BoxDecoration(
-                        color: Colors.lightBlue,
+                        color: Color.fromRGBO(166, 206, 59, 1.0),
                         border: Border.all(
                           color: Colors.white,
                           width: 4,
@@ -76,16 +77,14 @@ class DriverTripPageWidget extends StatelessWidget {
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: <Widget>[
                                         Icon(MdiIcons.carSeat),
-                                        Text(
-                                            " ${trip.trip.passengers}")
+                                        Text(" ${trip.trip.passengers}")
                                       ]),
                                   const SizedBox(height: 10),
                                   Row(
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: <Widget>[
                                         Icon(MdiIcons.briefcasePlus),
-                                        Text(
-                                            " ${trip.trip.luggage}")
+                                        Text(" ${trip.trip.luggage}")
                                       ])
                                 ])
                           ])),
@@ -113,8 +112,7 @@ class DriverTripPageWidget extends StatelessWidget {
                     width: 320.0,
                     decoration: new BoxDecoration(
                       image: DecorationImage(
-                        image: new AssetImage(
-                            'assets/London.png'),
+                        image: new AssetImage('assets/London.png'),
                         fit: BoxFit.fill,
                       ),
                       shape: BoxShape.circle,
@@ -133,7 +131,8 @@ class DriverTripPageWidget extends StatelessWidget {
             builder: (context) => DriverTripPageWidget(trip: trip)));
   }
 
-  Widget buildListOfPassengers(List<Passenger> passengers, bool clickable, bool accepted) {
+  Widget buildListOfPassengers(
+      List<Passenger> passengers, bool clickable, bool accepted) {
     List<Widget> passengerWidgets = passengers
         .map((passenger) => PassengerWidget(passenger, clickable, accepted))
         .toList();

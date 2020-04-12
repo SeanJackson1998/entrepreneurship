@@ -32,9 +32,10 @@ class _AddTripPageState extends State<AddTripPage> {
     return new Scaffold(
         resizeToAvoidBottomInset: false,
         resizeToAvoidBottomPadding: false,
+        backgroundColor: Color.fromRGBO(121, 121, 121, 1.0),
         appBar: AppBar(
-          title: Text("My Trips"),
-        ),
+            title: Text("My Trips"),
+            backgroundColor: Color.fromRGBO(126, 180, 75, 1.0)),
         drawer: URDrawer(),
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
@@ -202,6 +203,7 @@ class _AddTripPageState extends State<AddTripPage> {
       },
     );
   }
+
   Future navigateToNextPage(context) async {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => DriverMainPage()));
